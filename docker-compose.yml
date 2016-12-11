@@ -1,0 +1,16 @@
+version: '2'
+services:
+  web:
+    image: node
+    command: npm start
+    ports:
+      - 8000:8000
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - node_modules:/app/node_modules
+volumes:
+  node_modules:
+    driver: local
+
+
