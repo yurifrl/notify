@@ -1,6 +1,9 @@
 # notify
 Non obstructive notification engine
 
+## Instalation
+npm install vue-notify --save
+
 ## Development
 ```
 npm install
@@ -11,17 +14,38 @@ npm start
 
 ## Usage
 
-```
-Notify.send({
-  header: 'Header Example',
-  body: 'Body Example',
-  kind: 'info',
-})
+```html
+<template>
+  <div id="app">
+    <notify :notes="notes"></notify>
+    <button class="btn" :action="createNotification">New Notification</button>
+  </div>
+</template>
+
+<script>
+import Notify from './components/Notify'
+export default {
+  name: 'app',
+  components: {
+    Notify
+  },
+  methods: {
+    createNotification () {
+      const data = {
+        header: "Hello",
+        body: "I'm a notification, and at this level i will be gonne pretty soon",
+        duration: 90,
+        level: "info"
+      }
+      this.notes.push(data)
+    }
+  }
+}
+</script>
 ```
 
 ## API
 
-### Notify.send(props)
 props details:
 
 <table class="table table-bordered table-striped">
@@ -47,16 +71,16 @@ props details:
       <td>Body content</td>
     </tr>
     <tr>
-      <td>kind</td>
+      <td>level</td>
       <td>String</td>
-      <td>'info' - available: ['info', 'warning', 'error']</td>
+      <td>['info', 'warning', 'error']</td>
       <td>Notification type, changes default class and duration time</td>
     </tr>
     <tr>
-      <td>max</td>
-      <td>String</td>
-      <td>5</td>
-      <td>Number of notification that can apear on screan</td>
+      <td>duration</td>
+      <td>Number</td>
+      <td></td>
+      <td>How long infos will be displayed</td>
     </tr>
   </tbody>
 </table>
