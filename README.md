@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yurifrl/notify.svg?branch=master)](https://travis-ci.org/yurifrl/notify)
+
 # notify
 Non obstructive notification engine
 
